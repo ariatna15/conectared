@@ -42,3 +42,30 @@ document.addEventListener("DOMContentLoaded", () => {
   loadComponent("footer-container", "components/footer.html");
   loadComponent("header-landing-container", "components/header-landing.html");
 });
+
+
+//scroll para mostrar menú 
+let lastScrollTop = 0;
+const header = document.querySelector('.landing-header');
+
+window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Si el usuario baja más de 70px (el tamaño del header)
+    if (scrollTop > 70) {
+        if (scrollTop > lastScrollTop) {
+            // Está scrolleando hacia ABAJO -> Escondemos el menú
+            header.classList.remove('scroll-up');
+            header.classList.add('scroll-down');
+        } else {
+            // Está scrolleando hacia ARRIBA -> Mostramos el menú
+            header.classList.remove('scroll-down');
+            header.classList.add('scroll-up');
+        }
+    } else {
+        // Si está arriba del todo, el menú siempre debe estar visible e inmóvil
+        header.classList.remove('scroll-down', 'scroll-up');
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Evita errores en rebotes de scroll en Mac
+});
