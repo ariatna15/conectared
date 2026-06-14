@@ -187,3 +187,102 @@
     background-color: var(--color-primary);
     color: var(--color-dark);
 }
+
+/* ==========================================================================
+   Componente: Sidebar Premium (Alineado al Prototipo)
+   ========================================================================== */
+
+.main-sidebar {
+    width: 280px;
+    height: calc(100vh - 70px);
+    background-color: #ffffff;
+    border-right: 1px solid #edf2f7; /* Línea de división imperceptible */
+    padding: var(--space-md) var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    position: sticky;
+    top: 70px;
+}
+
+/* Títulos de sección (MENU PRINCIPAL / OTRAS OPCIONES) */
+.sidebar-title {
+    font-family: var(--font-family-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #a0aec0; /* Gris tenue reglamentario */
+    letter-spacing: 0.05em;
+    padding-inline: var(--space-md);
+    margin-bottom: var(--space-xs);
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Enlaces del Menú Lateral */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: var(--space-xs) var(--space-md);
+    color: #718096; /* Texto suave según diseño */
+    text-decoration: none;
+    font-family: var(--font-family-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+/* Iconos temporales */
+.sidebar-icon-placeholder {
+    margin-right: var(--space-sm);
+    font-size: 1.1rem;
+    opacity: 0.7;
+}
+
+/* Texto del enlace */
+.sidebar-text {
+    flex: 1;
+}
+
+/* Alertas Numéricas (Badges) */
+.sidebar-badge {
+    background-color: #fef3c7; /* Fondo amarillo pálido */
+    color: #d97706; /* Texto ocre oscuro */
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+/* Estado de Selección Activa (Efecto Celeste Pálido) */
+.sidebar-link.active {
+    background-color: #edfbf7; /* Tonalidad aqua/celeste sumamente sutil */
+    color: #319795; /* Verde azulado de la marca */
+    font-weight: 600;
+}
+
+.sidebar-link.active .sidebar-icon-placeholder {
+    opacity: 1;
+}
+
+/* Enlace de salida */
+.sidebar-link.logout {
+    color: #e53e3e;
+}
+
+/* Redefinición del Cuerpo General del Dashboard */
+.app-layout {
+    display: flex;
+    background-color: #f7fafc; /* Fondo grisáceo claro que resalta las tarjetas blancas */
+    min-height: calc(100vh - 70px);
+}
+
+.main-content {
+    flex: 1;
+    padding: var(--space-xl);
+}

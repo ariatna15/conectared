@@ -1,16 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ConectaRed - Dashboard</title>
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
-    <body>
-        <div id="header-container"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectaRed - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-        <div id="footer-container"></div>
+    <!-- CONTENEDOR MODULAR DEL HEADER -->
+    <div id="header-container"></div>
 
-        <script src="js/main.js"></script>
-    </body>
+    <!-- CUERPO PRINCIPAL CON SIDEBAR Y CONTENIDO -->
+    <div class="app-layout">
+        <!-- CONTENEDOR MODULAR DEL SIDEBAR -->
+        <div id="sidebar-container"></div>
+
+        <!-- ESPACIO DE TRABAJO (Aquí maquetarás las tarjetas de progreso) -->
+        <main class="main-content">
+            <h2>Panel de Control</h2>
+            <p>Bienvenido a tu espacio de trabajo modular.</p>
+        </main>
+    </div>
+
+    <!-- CONTENEDOR MODULAR DEL FOOTER -->
+    <div id="footer-container"></div>
+
+    <!-- CONTROLADOR JAVASCRIPT DE INYECCIÓN -->
+    <script src="js/main.js"></script>
+</body>
 </html>
