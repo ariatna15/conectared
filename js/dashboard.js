@@ -1,10 +1,9 @@
 /* ==========================================================================
-   CONECTARED - MOTOR DE RENDERIZADO DINÁMICO MULTI-ROL
+   CONECTARED - MOTOR DE RENDERIZADO DINÁMICO MULTI-ROL (PRODUCCIÓN)
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Se asume que CURRENT_USER_ROLE está declarado en js/dashboard-data.js (ej. "STUDENT" o "VOLUNTEER")
-  // En caso de no existir por defecto, se establece una salvaguarda epistémica
+  // Al haber reordenado los scripts, CURRENT_USER_ROLE siempre estará definido
   const role =
     typeof CURRENT_USER_ROLE !== "undefined" ? CURRENT_USER_ROLE : "STUDENT";
 
@@ -16,10 +15,38 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ==========================================================================
-   FLUJO A: VISTA DEL ESTUDIANTE (Estructura Original)
+   FLUJO A: VISTA DEL ESTUDIANTE (Estructura Dinámica y Segura)
    ========================================================================== */
 
 function renderStudentDashboard() {
+  const mainContent = document.querySelector(".main-content");
+  if (!mainContent) return;
+
+  // 1. Inyección del armazón semántico requerido por los componentes discentes
+  mainContent.innerHTML = `
+        <div class="dashboard-row-top">
+            <section class="session-card" id="widget-session"></section>
+            <section class="progress-card">
+                <h2>My Progress</h2>
+                <div class="metrics-container" id="widget-progress"></div>
+            </section>
+        </div>
+        <div class="dashboard-row-bottom">
+            <section class="recommendations-area">
+                <div class="section-header">
+                    <h2>Recommended for You</h2>
+                    <a href="#" class="view-all-link">View All</a>
+                </div>
+                <div class="cards-grid" id="widget-recommendations"></div>
+            </section>
+            <section class="activity-card">
+                <h2>Recent Activity</h2>
+                <ul class="activity-list" id="widget-activity"></ul>
+            </section>
+        </div>
+    `;
+
+  // 2. Población de los contenedores una vez creados en el paso anterior
   renderUpcomingSession();
   renderProgressMetrics();
   renderRecommendations();
@@ -120,14 +147,13 @@ function renderRecentActivity() {
 }
 
 /* ==========================================================================
-   FLUJO B: VISTA DEL VOLUNTARIO (Nueva Estructura Adaptativa)
+   FLUJO B: VISTA DEL VOLUNTARIO (Estructura Dinámica Directa)
    ========================================================================== */
 
 function renderVolunteerDashboard() {
   const mainContent = document.querySelector(".main-content");
   if (!mainContent) return;
 
-  // Se reestructura semánticamente el DOM inyectando las filas del Voluntario
   mainContent.innerHTML = `
         <div class="volunteer-stats-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 24px;">
             ${VOLUNTEER_DATA.stats
@@ -149,7 +175,6 @@ function renderVolunteerDashboard() {
                 <ul class="volunteer-session-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">
                     ${VOLUNTEER_DATA.sessions
                       .map((sess) => {
-                        // Determinación cromática de las etiquetas de estado según el diseño
                         const isConfirmed = sess.status === "Confirmada";
                         const bgBadge = isConfirmed ? "#e6fffa" : "#fffaf0";
                         const colorBadge = isConfirmed ? "#2f855a" : "#dd6b20";

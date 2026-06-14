@@ -7,7 +7,7 @@
  * Asigne "STUDENT" para visualizar la interfaz del discente.
  * Asigne "VOLUNTEER" para desplegar el panel de control del mentor.
  */
-const CURRENT_USER_ROLE = "VOLUNTEER";
+const CURRENT_USER_ROLE = "STUDENT";
 
 /* ==========================================================================
    SECCIÓN 1: ESTRUCTURAS DE DATOS PARA EL ROL DE ESTUDIANTE (STUDENT)
