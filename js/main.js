@@ -3,16 +3,15 @@
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Evaluación del rol global determinado en js/dashboard-data.js (Por defecto: "STUDENT")
   const activeRole =
     typeof CURRENT_USER_ROLE !== "undefined" ? CURRENT_USER_ROLE : "STUDENT";
 
   // 1. Carga de Componentes Estáticos Reutilizables (Header y Footer)
-  loadComponent("header-container", "components/header.html", () => {
+  loadComponent("header-container", "/components/header.html", () => {
     highlightCurrentPage(".nav-link");
   });
 
-  loadComponent("footer-container", "components/footer.html");
+  loadComponent("footer-container", "/components/footer.html");
 
   // 2. Inyección Dinámica del Sidebar en Función del Rol de Usuario
   renderDynamicSidebar(activeRole);
@@ -74,7 +73,7 @@ function renderDynamicSidebar(role) {
   // Discriminación de accesos principales según la fisonomía del rol
   if (role === "VOLUNTEER") {
     mainMenuItems = [
-      { text: "Dashboard", icon: "📊", url: "dashboard.html" },
+      { text: "Dashboard", icon: "📊", url: "/pages/dashboard/dashboard.html" },
       { text: "Publicar", icon: "📝", url: "#" },
       { text: "Donaciones", icon: "📈", url: "#" },
       { text: "Logros", icon: "🏆", url: "#", badge: "3" },
@@ -83,7 +82,7 @@ function renderDynamicSidebar(role) {
     ];
   } else {
     mainMenuItems = [
-      { text: "Dashboard", icon: "📊", url: "dashboard.html" },
+      { text: "Dashboard", icon: "📊", url: "/pages/dashboard/dashboard.html" },
       { text: "Mis mentores", icon: "👥", url: "#", badge: "3" },
       { text: "Mis sesiones", icon: "📅", url: "#", badge: "3" },
       { text: "Logros", icon: "🏆", url: "#" },
