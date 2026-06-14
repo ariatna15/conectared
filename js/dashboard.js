@@ -1,15 +1,31 @@
 /* ==========================================================================
-   CONECTARED - MOTOR DE RENDERIZADO DEL DASHBOARD
+   CONECTARED - MOTOR DE RENDERIZADO DINÁMICO MULTI-ROL
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Se asume que CURRENT_USER_ROLE está declarado en js/dashboard-data.js (ej. "STUDENT" o "VOLUNTEER")
+  // En caso de no existir por defecto, se establece una salvaguarda epistémica
+  const role =
+    typeof CURRENT_USER_ROLE !== "undefined" ? CURRENT_USER_ROLE : "STUDENT";
+
+  if (role === "VOLUNTEER") {
+    renderVolunteerDashboard();
+  } else {
+    renderStudentDashboard();
+  }
+});
+
+/* ==========================================================================
+   FLUJO A: VISTA DEL ESTUDIANTE (Estructura Original)
+   ========================================================================== */
+
+function renderStudentDashboard() {
   renderUpcomingSession();
   renderProgressMetrics();
   renderRecommendations();
   renderRecentActivity();
-});
+}
 
-// A. Inyección de la Próxima Sesión de Mentoría
 function renderUpcomingSession() {
   const container = document.getElementById("widget-session");
   if (!container) return;
@@ -33,13 +49,11 @@ function renderUpcomingSession() {
     `;
 }
 
-// B. Inyección de Métricas de Progreso (Gráficos SVG circulares)
 function renderProgressMetrics() {
   const container = document.getElementById("widget-progress");
   if (!container) return;
 
   container.innerHTML = PROGRESS_METRICS.map((metric) => {
-    // Cálculo del perímetro de la circunferencia para el efecto de carga del SVG (Radio = 30)
     const radius = 30;
     const circumference = 2 * Math.PI * radius;
     const strokeDashoffset =
@@ -64,7 +78,6 @@ function renderProgressMetrics() {
   }).join("");
 }
 
-// C. Inyección de Tarjetas de Recomendación
 function renderRecommendations() {
   const container = document.getElementById("widget-recommendations");
   if (!container) return;
@@ -87,7 +100,6 @@ function renderRecommendations() {
   ).join("");
 }
 
-// D. Inyección de la Bitácora de Actividad Reciente
 function renderRecentActivity() {
   const container = document.getElementById("widget-activity");
   if (!container) return;
@@ -105,4 +117,71 @@ function renderRecentActivity() {
         </li>
     `,
   ).join("");
+}
+
+/* ==========================================================================
+   FLUJO B: VISTA DEL VOLUNTARIO (Nueva Estructura Adaptativa)
+   ========================================================================== */
+
+function renderVolunteerDashboard() {
+  const mainContent = document.querySelector(".main-content");
+  if (!mainContent) return;
+
+  // Se reestructura semánticamente el DOM inyectando las filas del Voluntario
+  mainContent.innerHTML = `
+        <div class="volunteer-stats-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 24px;">
+            ${VOLUNTEER_DATA.stats
+              .map(
+                (stat) => `
+                <div class="stat-card" style="background-color: #ffffff; border: 1px solid #edf2f7; border-radius: 16px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; gap: 4px;">
+                    <span class="stat-title" style="font-size: 0.85rem; font-weight: 600; color: #718096;">${stat.title}</span>
+                    <span class="stat-value" style="font-size: 1.8rem; font-weight: 700; color: #2d3748; line-height: 1.2;">${stat.value}</span>
+                    <span class="stat-detail" style="font-size: 0.75rem; color: #a0aec0; font-weight: 500;">${stat.detail}</span>
+                </div>
+            `,
+              )
+              .join("")}
+        </div>
+
+        <div class="dashboard-row-bottom" style="display: flex; gap: 24px;">
+            <section class="activity-card" style="flex: 1; background-color: #ffffff; border: 1px solid #edf2f7; border-radius: 16px; padding: 24px;">
+                <h2 style="font-family: var(--font-family-heading), 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 700; color: #2d3748; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Sesiones</h2>
+                <ul class="volunteer-session-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px;">
+                    ${VOLUNTEER_DATA.sessions
+                      .map((sess) => {
+                        // Determinación cromática de las etiquetas de estado según el diseño
+                        const isConfirmed = sess.status === "Confirmada";
+                        const bgBadge = isConfirmed ? "#e6fffa" : "#fffaf0";
+                        const colorBadge = isConfirmed ? "#2f855a" : "#dd6b20";
+                        const bgAvatar = isConfirmed ? "#ebf8ff" : "#fff5f5";
+                        const colorAvatar = isConfirmed ? "#2b6cb0" : "#c53030";
+
+                        return `
+                            <li class="session-item-volunteer" style="display: flex; align-items: center; gap: 16px;">
+                                <div class="student-avatar-placeholder" style="width: 40px; height: 40px; border-radius: 50%; background-color: ${bgAvatar}; color: ${colorAvatar}; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">
+                                    ${sess.student
+                                      .split(" ")
+                                      .map((n) => n[0])
+                                      .join("")}
+                                </div>
+                                <div class="session-info-volunteer" style="flex: 1;">
+                                    <strong style="font-size: 0.9rem; color: #2d3748; display: block;">${sess.student}</strong>
+                                    <p style="font-size: 0.8rem; color: #718096; margin: 0;">${sess.time} | ${sess.subject}</p>
+                                </div>
+                                <span class="badge-status" style="font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 6px; background-color: ${bgBadge}; color: ${colorBadge};">${sess.status}</span>
+                            </li>
+                        `;
+                      })
+                      .join("")}
+                </ul>
+            </section>
+
+            <section class="progress-card" style="flex: 2; background-color: #ffffff; border: 1px solid #edf2f7; border-radius: 16px; padding: 24px;">
+                <h2 style="font-family: var(--font-family-heading), 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 700; color: #2d3748; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Progreso Certificado</h2>
+                <div class="certified-progress-placeholder" style="width: 100%; height: 200px; border: 2px dashed #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #a0aec0; font-size: 0.9rem; font-weight: 500;">
+                    Área reservada para el gráfico analítico de horas acumuladas
+                </div>
+            </section>
+        </div>
+    `;
 }

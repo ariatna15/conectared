@@ -7,50 +7,16 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <!-- CONTENEDOR MODULAR DEL HEADER -->
         <div id="header-container"></div>
 
-        <!-- CUERPO PRINCIPAL CON SIDEBAR Y CONTENIDO -->
         <div class="app-layout">
             <div id="sidebar-container"></div>
 
-            <main class="main-content">
-                <div class="dashboard-row-top">
-                    <section class="session-card" id="widget-session"></section>
-
-                    <section class="progress-card">
-                        <h2>My Progress</h2>
-                        <div
-                            class="metrics-container"
-                            id="widget-progress"
-                        ></div>
-                    </section>
-                </div>
-
-                <div class="dashboard-row-bottom">
-                    <section class="recommendations-area">
-                        <div class="section-header">
-                            <h2>Recommended for You</h2>
-                            <a href="#" class="view-all-link">View All</a>
-                        </div>
-                        <div
-                            class="cards-grid"
-                            id="widget-recommendations"
-                        ></div>
-                    </section>
-
-                    <section class="activity-card">
-                        <h2>Recent Activity</h2>
-                        <ul class="activity-list" id="widget-activity"></ul>
-                    </section>
-                </div>
-            </main>
+            <main class="main-content"></main>
         </div>
 
-        <!-- CONTENEDOR MODULAR DEL FOOTER -->
         <div id="footer-container"></div>
 
-        <!-- CONTROLADOR JAVASCRIPT DE INYECCIÓN -->
         <script src="js/main.js"></script>
         <script src="js/dashboard-data.js"></script>
         <script src="js/dashboard.js"></script>

@@ -1,8 +1,19 @@
 /* ==========================================================================
-   CONECTARED - MOCK DATA (Data de Prueba para el Dashboard)
+   CONECTARED - ARCHIVO CENTRAL DE SIMULACIÓN DE DATOS (MOCK DATA)
    ========================================================================== */
 
-// 1. Datos de la Próxima Sesión (Upcoming Mentorship)
+/**
+ * CONTROL DE ACCESO DINÁMICO:
+ * Asigne "STUDENT" para visualizar la interfaz del discente.
+ * Asigne "VOLUNTEER" para desplegar el panel de control del mentor.
+ */
+const CURRENT_USER_ROLE = "VOLUNTEER";
+
+/* ==========================================================================
+   SECCIÓN 1: ESTRUCTURAS DE DATOS PARA EL ROL DE ESTUDIANTE (STUDENT)
+   ========================================================================== */
+
+// A. Información de la Próxima Sesión de Mentoría
 const UPCOMING_SESSION = {
   mentorName: "Dr. Sarah Mitchell",
   specialty: "Advanced UI/UX Design Principles",
@@ -12,14 +23,14 @@ const UPCOMING_SESSION = {
   status: "UPCOMING",
 };
 
-// 2. Métricas de Progreso (My Progress)
+// B. Métricas de Progreso Analítico (Gráficos Circulares)
 const PROGRESS_METRICS = [
   { label: "Active Course", percentage: 75, color: "#f6e05e" }, // Amarillo
   { label: "Resources", percentage: 40, color: "#4a5568" }, // Gris oscuro
   { label: "Assignments", percentage: 90, color: "#a0aec0" }, // Gris claro
 ];
 
-// 3. Tarjetas de Recomendación (Recommended for You)
+// C. Tarjetas de Recomendación Personalizadas
 const RECOMMENDED_COURSES = [
   {
     id: 1,
@@ -47,7 +58,7 @@ const RECOMMENDED_COURSES = [
   },
 ];
 
-// 4. Bitácora Cronológica (Recent Activity)
+// D. Bitácora Cronológica de Actividades Recientes
 const RECENT_ACTIVITIES = [
   {
     id: 1,
@@ -78,3 +89,60 @@ const RECENT_ACTIVITIES = [
     timeAgo: "3 days ago",
   },
 ];
+
+/* ==========================================================================
+   SECCIÓN 2: ESTRUCTURAS DE DATOS PARA EL ROL DE VOLUNTARIO (VOLUNTEER)
+   ========================================================================== */
+
+// E. Métricas de Impacto Social y Gestión del Voluntariado
+const VOLUNTEER_DATA = {
+  stats: [
+    {
+      title: "Estudiantes ayudados",
+      value: "47",
+      detail: "+3 este mes",
+      class: "stat-students",
+    },
+    {
+      title: "Horas de mentoría",
+      value: "128",
+      detail: "Meta: 150h para cert.",
+      class: "stat-hours",
+    },
+    {
+      title: "Materiales donados",
+      value: "23",
+      detail: "12 libros | 11 PDFs",
+      class: "stat-materials",
+    },
+    {
+      title: "Calificación",
+      value: "4.9",
+      detail: "89 reseñas",
+      class: "stat-rating",
+    },
+  ],
+  sessions: [
+    {
+      student: "Diego Morales",
+      time: "3 PM",
+      subject: "Álgebra Lineal",
+      status: "Confirmada",
+      statusClass: "status-confirmed",
+    },
+    {
+      student: "Lucia Vargas",
+      time: "6 PM",
+      subject: "Cálculo I",
+      status: "Confirmada",
+      statusClass: "status-confirmed",
+    },
+    {
+      student: "Rodrigo Castro",
+      time: "Mañana 4 PM",
+      subject: "C++",
+      status: "Pendiente",
+      statusClass: "status-pending",
+    },
+  ],
+};
