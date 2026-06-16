@@ -1,41 +1,17 @@
+/* ==========================================================================
+   CONECTARED - ARQUITECTURA MODULAR Y CONTROL DINÁMICO DE NAV/SIDEBAR
+   ========================================================================== */
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Función genérica para cargar componentes HTML
-  const loadComponent = (elementId, filePath) => {
-    const container = document.getElementById(elementId);
-    if (container) {
-      fetch(filePath)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`Error al cargar el componente: ${filePath}`);
-          }
-          return response.text();
-        })
-        .then((htmlContent) => {
-          container.innerHTML = htmlContent;
+  const activeRole =
+    typeof CURRENT_USER_ROLE !== "undefined" ? CURRENT_USER_ROLE : "STUDENT";
 
-          // Opcional: Activar clase "active" en el enlace actual
-          if (elementId === "header-container") {
-            highlightCurrentPage();
-          }
-        })
-        .catch((error) => console.error(error));
-    }
-  };
+  // 1. Carga de Componentes Estáticos Reutilizables (Header y Footer)
+  loadComponent("header-container", "/components/header.html", () => {
+    highlightCurrentPage(".nav-link");
+  });
 
-  // Función para iluminar el enlace de la página activa
-  const highlightCurrentPage = () => {
-    const currentPath =
-      window.location.pathname.split("/").pop() || "index.html";
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    navLinks.forEach((link) => {
-      if (link.getAttribute("href") === currentPath) {
-        link.classList.add("active");
-      } else {
-        link.classList.remove("active");
-      }
-    });
-  };
+  loadComponent("footer-container", "/components/footer.html");
 
   // Ejecutar la carga de los componentes bases instalados en el DOM
   loadComponent("header-container", "components/header.html");
