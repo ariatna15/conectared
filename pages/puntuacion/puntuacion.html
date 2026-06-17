@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificar Asesoría - ConectaRed</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="puntuacion.css">
+</head>
+<body>
+
+    <header class="landing-header">
+        <div class="header-brand">
+            <img src="../../images/logo-conectared.png" alt="Logo ConectaRed" class="logo">
+            <span class="logo-text">Conecta<span class="logo-highlight">Red</span></span>
+        </div>
+        <nav class="header-nav">
+            <a href="../../index.html" class="nav-link">Inicio</a>
+            <a href="#" class="nav-link active">Mentores</a>
+            <a href="#" class="nav-link">Recursos</a>
+            <a href="#" class="nav-link">Comunidad</a>
+            <a href="#" class="nav-link unete-btn">Únete</a>
+        </nav>
+    </header>
+
+    <main class="main-content-wrapper">
+        <div class="puntuacion-container">
+
+            <!-- Recordatorio persistente (Escenario Alternativo) -->
+            <div class="reminder-banner hidden" id="reminder-banner">
+                <span class="reminder-icon">🔔</span>
+                <div class="reminder-text">
+                    <strong>Tienes una reseña pendiente</strong>
+                    <p>Cerraste la ventana de calificación antes de terminar. Complétala para ayudar a otros estudiantes.</p>
+                </div>
+                <button class="btn-complete-reminder" id="btn-reopen-rating">Completar reseña</button>
+            </div>
+
+            <!-- Info de la sesión -->
+            <div class="session-info-card">
+                <img id="mentor-avatar" src="../../images/perfil2.png" alt="Foto del mentor" class="session-mentor-avatar">
+                <div class="session-mentor-info">
+                    <h2 class="session-title">Califica tu asesoría</h2>
+                    <p class="session-meta">
+                        Sesión con <strong id="mentor-name">Carlos Mendoza</strong> · <span id="session-subject">Historia & Literatura</span>
+                    </p>
+                    <p class="session-date" id="session-date">📅 14 de junio, 2026 · 🕒 4:00 PM - 5:00 PM</p>
+                    <span class="session-status-badge" id="session-status-badge">Sesión finalizada</span>
+                </div>
+            </div>
+
+            <!-- Escenario Error: sesión no realizada -->
+            <div class="error-banner hidden" id="error-banner">
+                <span class="error-icon">⚠️</span>
+                <div class="error-text">
+                    <strong>No es posible calificar esta sesión</strong>
+                    <p>No encontramos asistencia registrada para esta asesoría. Solo puedes calificar sesiones que se hayan realizado.</p>
+                </div>
+            </div>
+
+            <!-- Formulario de calificación -->
+            <section class="rating-form" id="rating-form">
+                <h3 class="rating-form-title">¿Cómo calificarías a tu mentor?</h3>
+
+                <div class="rating-stars" id="rating-stars">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+                <p class="rating-helper" id="rating-helper">Selecciona de 1 a 5 estrellas</p>
+
+                <label for="rating-comment" class="rating-comment-label">Cuéntale a otros estudiantes tu experiencia</label>
+                <textarea id="rating-comment" class="rating-comment" rows="4" placeholder="Ej: Me ayudó muchísimo a entender derivadas, explica con paciencia..."></textarea>
+
+                <div class="rating-form-actions">
+                    <button class="btn-cancel-rating" id="btn-cancel-rating">Cerrar sin calificar</button>
+                    <button class="btn-submit-rating" id="btn-submit-rating">Publicar calificación</button>
+                </div>
+            </section>
+
+            <!-- Confirmación de éxito -->
+            <section class="success-banner hidden" id="success-banner">
+                <span class="success-icon">✓</span>
+                <div class="success-text">
+                    <strong>¡Gracias por tu calificación!</strong>
+                    <p>Tu puntuación ya se refleja en el perfil público del mentor.</p>
+                </div>
+                <div class="profile-preview-card">
+                    <img src="../../images/perfil2.png" alt="Foto del mentor" class="profile-preview-avatar">
+                    <div class="profile-preview-info">
+                        <h4 id="preview-mentor-name">Carlos Mendoza</h4>
+                        <div class="profile-preview-rating">
+                            <span class="profile-preview-stars" id="preview-stars">★★★★★</span>
+                            <span id="preview-score">4.9</span>
+                            <span class="profile-preview-count" id="preview-count">(90 reseñas)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-text">Conecta<span class="logo-highlight">Red</span></span>
+                </div>
+                <p class="footer-description">Conectando estudiantes con oportunidades educativas en todo el Perú.</p>
+            </div>
+            <div class="footer-links-group">
+                <h4 class="footer-title">Plataforma</h4>
+                <ul class="footer-list">
+                    <li><a href="#">Buscar Mentores</a></li>
+                    <li><a href="#">Recursos</a></li>
+                    <li><a href="#">Comunidad</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-group">
+                <h4 class="footer-title">Soporte</h4>
+                <ul class="footer-list">
+                    <li><a href="#">Centro de Ayuda</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Términos</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-socials">
+                <h4 class="footer-title">Síguenos</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook"><span>FB</span></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><span>TW</span></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><span>IG</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/puntuacion.js"></script>
+</body>
+</html>
