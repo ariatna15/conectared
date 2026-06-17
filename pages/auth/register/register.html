@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="CSS/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
@@ -16,15 +16,15 @@
     <div class="registro-nav-inner">
       <button class="registro-logo" id="btn-logo" aria-label="Ir a inicio">
         <span class="registro-logo-mark" aria-hidden="true">
-          <img src="images/614cbb28373bad7e6fea1bb35004c0f32dd3dba5.png" alt="Logo ConectaRed" style="width: 40px; height: 40px; object-fit: contain; display: block;" />
+          <img src="images/4690740b4184856db56c61b94712977043d7cd3b.png" alt="Logo ConectaRed" style="width: 40px; height: 40px; object-fit: contain; display: block;" />
         </span>
-        <span class="registro-logo-text">ConectaRed</span>
+        <span class="logo-text">Conecta<span class="logo-highlight">Red</span></span>
       </button>
       <div class="registro-nav-links">
-        <a href="#" class="registro-nav-link">Inicio</a>
-        <a href="#" class="registro-nav-link">Mentores</a>
-        <a href="#" class="registro-nav-link">Recursos</a>
-        <a href="#" class="registro-nav-link">Comunidad</a>
+        <a href="../../../" class="registro-nav-link">Inicio</a>
+        <a href="../../../#seccion-mentores" class="registro-nav-link">Mentores</a>
+        <a href="../../../#seccion-recursos-educativos" class="registro-nav-link">Recursos</a>
+        <a href="../../../#seccion-llamada-accion" class="registro-nav-link">Comunidad</a>
         <button class="registro-btn-unete">Únete</button>
       </div>
     </div>
@@ -149,7 +149,7 @@
           </form>
 
           <div class="registro-login-link">
-            <p>¿Ya tienes cuenta? <a href="../pages/login/login.html" class="registro-link" style="text-decoration: none; font-weight: 700; color: var(--registro-dark);">Inicia sesión</a></p>          </div>
+            <p>¿Ya tienes cuenta? <a href="../login.html" class="registro-link" style="text-decoration: none; font-weight: 700; color: var(--registro-dark);">Inicia sesión</a></p>          </div>
         </div>
 
         <button class="registro-btn-back" id="ben-back">
@@ -267,7 +267,7 @@
           </form>
 
           <div class="registro-login-link">
-            <p>¿Ya tienes cuenta? <a href="../pages/login/login.html" class="registro-link" style="text-decoration: none; font-weight: 700; color: var(--registro-dark);">Inicia sesión</a></p>
+            <p>¿Ya tienes cuenta? <a href="../login.html" class="registro-link" style="text-decoration: none; font-weight: 700; color: var(--registro-dark);">Inicia sesión</a></p>
           </div>
         </div>
 
@@ -281,49 +281,54 @@
   </main>
 
   <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-<footer class="registro-footer">
-    <div class="registro-footer-inner">
-      <div class="registro-footer-top">
-        <div class="registro-footer-brand">
-          <div class="registro-footer-logo">
-            <img src="images/e9205318bb6346def6f2f6b89ae6be3f6cbceca.png" alt="Logo ConectaRed Blanco" style="width: 40px; height: 40px; object-fit: contain; display: block;" />
-            <span>ConectaRed</span>
-          </div>
-          <p class="registro-footer-desc">
-            Conectando estudiantes vulnerables con mentores voluntarios para construir un futuro mejor a través de la educación.
-          </p>
-          <div class="registro-footer-social">
-            <a href="#" class="registro-social-btn" aria-label="Twitter">
-              <svg viewBox="0 0 20 18" fill="none"><path d="M19 2a8 8 0 01-2.3.63A4 4 0 0018.5.9a8 8 0 01-2.54.97A4 4 0 009.4 5.7 11.3 11.3 0 011.2 1.55 4 4 0 002.44 7a4 4 0 01-1.8-.5v.05A4 4 0 003.84 10a4 4 0 01-1.8.07 4 4 0 003.72 2.77A8 8 0 010 14.07a11.3 11.3 0 006.1 1.79c7.32 0 11.33-6.07 11.33-11.33l-.01-.52A8.1 8.1 0 0019 2z" fill="#9CA3AF"/></svg>
-            </a>
-            <a href="#" class="registro-social-btn" aria-label="LinkedIn">
-              <svg viewBox="0 0 20 20" fill="none"><rect x="0" y="6" width="4" height="12" rx="1" fill="#9CA3AF"/><circle cx="2" cy="2.5" r="2" fill="#9CA3AF"/><path d="M7 9c0-1.5 1-3 3.5-3S15 7.5 15 10v8h-4v-6.5c0-1-.5-1.5-1.5-1.5S8 9.5 8 10.5V18H7V9z" fill="#9CA3AF"/></svg>
-            </a>
-            <a href="#" class="registro-social-btn" aria-label="Instagram">
-              <svg viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="16" height="16" rx="4" stroke="#9CA3AF" stroke-width="1.5"/><circle cx="9" cy="9" r="3.5" stroke="#9CA3AF" stroke-width="1.5"/><circle cx="13.5" cy="4.5" r="1" fill="#9CA3AF"/></svg>
-            </a>
-          </div>
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <span class="logo-text"
+                    >Conecta<span class="logo-highlight">Red</span></span
+                >
+            </div>
+            <p class="footer-description">
+                Conectando estudiantes con oportunidades educativas en todo el
+                Perú.
+            </p>
         </div>
-        <div class="registro-footer-cols">
-          <div class="registro-footer-col">
-            <h4>Plataforma</h4>
-            <a href="#">Mentores</a>
-            <a href="#">Recursos</a>
-            <a href="#">Comunidad</a>
-            <a href="#">Certificados</a>
-          </div>
-          <div class="registro-footer-col">
-            <h4>Soporte</h4>
-            <a href="#">Ayuda</a>
-            <a href="#">Contacto</a>
-            <a href="#">Privacidad</a>
-            <a href="#">Términos</a>
-          </div>
+        <div class="footer-links-group">
+            <h4 class="footer-title">Plataforma</h4>
+            <ul class="footer-list">
+                <li><a href="#">Buscar Mentores</a></li>
+                <li><a href="#">Recursos</a></li>
+                <li><a href="#">Comunidad</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
         </div>
-      </div>
-      <p class="registro-footer-copy">© 2024 ConectaRed. Todos los derechos reservados.</p>
+        <div class="footer-links-group">
+            <h4 class="footer-title">Soporte</h4>
+            <ul class="footer-list">
+                <li><a href="#">Centro de Ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Términos</a></li>
+                <li><a href="#">Privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-socials">
+            <h4 class="footer-title">Síguenos</h4>
+            <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Facebook"
+                    ><span>FB</span></a
+                >
+                <a href="#" class="social-icon" aria-label="Twitter"
+                    ><span>TW</span></a
+                >
+                <a href="#" class="social-icon" aria-label="Instagram"
+                    ><span>IG</span></a
+                >
+            </div>
+        </div>
     </div>
-  </footer>
+</footer>
+
 
   <!-- Toast -->
   <div class="registro-toast" id="registro-toast" role="status" aria-live="polite">

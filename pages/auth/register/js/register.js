@@ -405,7 +405,16 @@
     e.preventDefault();
     if (validateBeneficiario()) {
       showToast('beneficiario');
-      this.reset();
+      const form = new FormData(this);
+      const data = {};
+      form.forEach((value, key) => {
+        data[key] = value;
+      });
+      
+      const usersData = JSON.parse(localStorage.getItem('usersData')) || [];
+      usersData.push(data);
+      localStorage.setItem('usersData', JSON.stringify(usersData));
+        this.reset();
     }
   });
 
@@ -417,6 +426,19 @@
       selectedFile = null;
       filenameEl.textContent = '';
       dropzone.classList.remove('has-file', 'is-invalid');
+
+      const form = new FormData(this);
+      const data = {};
+      form.forEach((value, key) => {
+        data[key] = value;
+      });
+      data['documento'] = selectedFile ? selectedFile.name : null; // Store file name for demo  
+
+
+      const usersData = JSON.parse(localStorage.getItem('usersData')) || [];
+      usersData.push(data);
+      localStorage.setItem('usersData', JSON.stringify(usersData));
+
       this.reset();
     }
   });

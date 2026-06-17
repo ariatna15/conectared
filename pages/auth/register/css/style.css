@@ -5,28 +5,36 @@
 
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
-  --registro-dark:        #262641;
-  --registro-teal:        #8cdfde;
-  --registro-teal-hover:  #72d4d3;
-  --registro-muted:       #5c5c77;
+  --registro-dark: #262641;
+  --registro-teal: #8cdfde;
+  --registro-teal-hover: #72d4d3;
+  --registro-muted: #5c5c77;
   --registro-placeholder: #9ca3af;
-  --registro-border:      #eef2f5;
-  --registro-input-bg:    #fafcfe;
-  --registro-white:       #ffffff;
-  --registro-page-bg:     #fafcfe;
-  --registro-error:       #ef4444;
+  --registro-border: #eef2f5;
+  --registro-input-bg: #fafcfe;
+  --registro-white: #ffffff;
+  --registro-page-bg: #fafcfe;
+  --registro-error: #ef4444;
   --registro-shadow-card: 0 4px 12px rgba(38, 38, 65, 0.06);
-  --registro-shadow-btn:  0 4px 12px -2px rgba(0, 0, 0, 0.08);
+  --registro-shadow-btn: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
   --registro-radius-card: 24px;
-  --registro-radius-input:16px;
-  --registro-radius-btn:  12px;
-  --registro-font:        'Inter', sans-serif;
+  --registro-radius-input: 16px;
+  --registro-radius-btn: 12px;
+  --registro-font: 'Inter', sans-serif;
 }
 
 /* ── Reset & Base ──────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html { font-size: 16px; }
+html {
+  font-size: 16px;
+}
 
 body {
   font-family: var(--registro-font);
@@ -37,16 +45,31 @@ body {
   flex-direction: column;
 }
 
-a { text-decoration: none; }
-button { cursor: pointer; background: none; border: none; font-family: inherit; }
-svg { display: block; }
-input, select { font-family: inherit; }
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+svg {
+  display: block;
+}
+
+input,
+select {
+  font-family: inherit;
+}
 
 /* ── Nav ───────────────────────────────────────────────────── */
 .registro-nav {
   background: var(--registro-white);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  height: 81px;
+  height: 80px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -54,10 +77,8 @@ input, select { font-family: inherit; }
 }
 
 .registro-nav-inner {
-  max-width: 1280px;
-  margin: 0 auto;
   height: 100%;
-  padding: 0 96px;
+  padding-inline: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,7 +100,10 @@ input, select { font-family: inherit; }
   flex-shrink: 0;
 }
 
-.registro-logo-mark svg { width: 100%; height: 100%; }
+.registro-logo-mark svg {
+  width: 100%;
+  height: 100%;
+}
 
 .registro-logo-text {
   font-weight: 700;
@@ -93,6 +117,7 @@ input, select { font-family: inherit; }
   display: flex;
   align-items: center;
   gap: 32px;
+  margin-left: auto;
 }
 
 .registro-nav-link {
@@ -102,26 +127,41 @@ input, select { font-family: inherit; }
   transition: color 0.2s;
 }
 
-.registro-nav-link:hover { color: var(--registro-dark); }
+.registro-nav-link:hover {
+  color: var(--registro-dark);
+}
 
 .registro-btn-unete {
   background: var(--registro-teal);
   color: var(--registro-dark);
-  font-size: 16px;
+  font-size: 0.95rem;
   font-weight: 400;
   padding: 8px 24px;
   border-radius: 8px;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   transition: background 0.2s;
 }
 
-.registro-btn-unete:hover { background: var(--registro-teal-hover); }
+.registro-btn-unete:hover {
+  background: var(--registro-teal-hover);
+}
 
 /* ── Main & Views ──────────────────────────────────────────── */
-.registro-main { flex: 1; display: flex; flex-direction: column; }
+.registro-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
-.registro-view { display: none; }
-.registro-view.active { display: flex; flex-direction: column; align-items: center; }
+.registro-view {
+  display: none;
+}
+
+.registro-view.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* ── Role Selection View ───────────────────────────────────── */
 .registro-view-selection {
@@ -189,10 +229,18 @@ input, select { font-family: inherit; }
   flex-shrink: 0;
 }
 
-.registro-card-icon--teal { background: rgba(140, 223, 222, 0.20); }
-.registro-card-icon--dark  { background: rgba(38, 38, 65, 0.10); }
+.registro-card-icon--teal {
+  background: rgba(140, 223, 222, 0.20);
+}
 
-.registro-card-icon svg { width: 40px; height: 32px; }
+.registro-card-icon--dark {
+  background: rgba(38, 38, 65, 0.10);
+}
+
+.registro-card-icon svg {
+  width: 40px;
+  height: 32px;
+}
 
 .registro-h2 {
   font-size: 24px;
@@ -221,22 +269,31 @@ input, select { font-family: inherit; }
   transition: background 0.2s, transform 0.1s;
 }
 
-.registro-btn-card:hover  { transform: translateY(-1px); }
-.registro-btn-card:active { transform: translateY(0); }
+.registro-btn-card:hover {
+  transform: translateY(-1px);
+}
+
+.registro-btn-card:active {
+  transform: translateY(0);
+}
 
 .registro-btn-card--teal {
   background: var(--registro-teal);
   color: var(--registro-dark);
 }
 
-.registro-btn-card--teal:hover { background: var(--registro-teal-hover); }
+.registro-btn-card--teal:hover {
+  background: var(--registro-teal-hover);
+}
 
 .registro-btn-card--dark {
   background: var(--registro-dark);
   color: var(--registro-white);
 }
 
-.registro-btn-card--dark:hover { background: #1a1a2e; }
+.registro-btn-card--dark:hover {
+  background: #1a1a2e;
+}
 
 /* ── Form Views ────────────────────────────────────────────── */
 .registro-view-form {
@@ -256,7 +313,9 @@ input, select { font-family: inherit; }
   max-width: 500px;
 }
 
-.registro-form-wrapper--wide { max-width: 650px; }
+.registro-form-wrapper--wide {
+  max-width: 650px;
+}
 
 /* Form header */
 .registro-form-header {
@@ -278,8 +337,14 @@ input, select { font-family: inherit; }
   flex-shrink: 0;
 }
 
-.registro-form-icon--teal { background: rgba(140, 223, 222, 0.20); }
-.registro-form-icon svg { width: 32px; height: 28px; }
+.registro-form-icon--teal {
+  background: rgba(140, 223, 222, 0.20);
+}
+
+.registro-form-icon svg {
+  width: 32px;
+  height: 28px;
+}
 
 .registro-form-title {
   font-size: 32px;
@@ -313,7 +378,9 @@ input, select { font-family: inherit; }
   margin-bottom: 20px;
 }
 
-.registro-field:last-of-type { margin-bottom: 0; }
+.registro-field:last-of-type {
+  margin-bottom: 0;
+}
 
 .registro-grid-2 {
   display: grid;
@@ -329,8 +396,13 @@ input, select { font-family: inherit; }
   padding-left: 4px;
 }
 
-.registro-input-wrap { position: relative; }
-.registro-input-wrap .registro-input { width: 100%; }
+.registro-input-wrap {
+  position: relative;
+}
+
+.registro-input-wrap .registro-input {
+  width: 100%;
+}
 
 .registro-input {
   background: var(--registro-input-bg);
@@ -345,9 +417,17 @@ input, select { font-family: inherit; }
   transition: border-color 0.2s;
 }
 
-.registro-input::placeholder { color: var(--registro-placeholder); }
-.registro-input:focus        { border-color: var(--registro-teal); }
-.registro-input.is-invalid   { border-color: var(--registro-error); }
+.registro-input::placeholder {
+  color: var(--registro-placeholder);
+}
+
+.registro-input:focus {
+  border-color: var(--registro-teal);
+}
+
+.registro-input.is-invalid {
+  border-color: var(--registro-error);
+}
 
 /* Select */
 .registro-select-wrap {
@@ -371,7 +451,9 @@ input, select { font-family: inherit; }
   transition: border-color 0.2s;
 }
 
-.registro-select:focus { border-color: var(--registro-teal); }
+.registro-select:focus {
+  border-color: var(--registro-teal);
+}
 
 .registro-select-arrow {
   position: absolute;
@@ -383,7 +465,10 @@ input, select { font-family: inherit; }
   height: 16px;
 }
 
-.registro-select-arrow svg { width: 16px; height: 16px; }
+.registro-select-arrow svg {
+  width: 16px;
+  height: 16px;
+}
 
 /* Eye toggle */
 .registro-eye {
@@ -401,10 +486,18 @@ input, select { font-family: inherit; }
   transition: color 0.2s;
 }
 
-.registro-eye:hover { color: var(--registro-muted); }
-.registro-eye svg   { width: 18px; height: 16px; }
+.registro-eye:hover {
+  color: var(--registro-muted);
+}
 
-.registro-input-wrap .registro-input { padding-right: 44px; }
+.registro-eye svg {
+  width: 18px;
+  height: 16px;
+}
+
+.registro-input-wrap .registro-input {
+  padding-right: 44px;
+}
 
 /* Errors */
 .registro-error {
@@ -435,10 +528,23 @@ input, select { font-family: inherit; }
   cursor: pointer;
 }
 
-.registro-btn-submit:hover  { background: var(--registro-teal-hover); transform: translateY(-1px); }
-.registro-btn-submit:active { transform: translateY(0); }
-.registro-btn-submit--icon  { height: 56px; }
-.registro-btn-submit--icon svg { width: 14px; height: 16px; }
+.registro-btn-submit:hover {
+  background: var(--registro-teal-hover);
+  transform: translateY(-1px);
+}
+
+.registro-btn-submit:active {
+  transform: translateY(0);
+}
+
+.registro-btn-submit--icon {
+  height: 56px;
+}
+
+.registro-btn-submit--icon svg {
+  width: 14px;
+  height: 16px;
+}
 
 /* Login link */
 .registro-login-link {
@@ -448,7 +554,10 @@ input, select { font-family: inherit; }
   text-align: center;
 }
 
-.registro-login-link p { font-size: 15px; color: var(--registro-muted); }
+.registro-login-link p {
+  font-size: 15px;
+  color: var(--registro-muted);
+}
 
 .registro-link {
   font-weight: 700;
@@ -461,7 +570,9 @@ input, select { font-family: inherit; }
   transition: text-decoration 0.1s;
 }
 
-.registro-link:hover { text-decoration: underline; }
+.registro-link:hover {
+  text-decoration: underline;
+}
 
 /* Back button */
 .registro-btn-back {
@@ -476,8 +587,14 @@ input, select { font-family: inherit; }
   transition: color 0.2s;
 }
 
-.registro-btn-back:hover { color: var(--registro-dark); }
-.registro-btn-back svg   { width: 16px; height: 16px; }
+.registro-btn-back:hover {
+  color: var(--registro-dark);
+}
+
+.registro-btn-back svg {
+  width: 16px;
+  height: 16px;
+}
 
 /* ── Identity Validation ───────────────────────────────────── */
 .registro-identity-section {
@@ -507,7 +624,10 @@ input, select { font-family: inherit; }
   flex-shrink: 0;
 }
 
-.registro-identity-badge svg { width: 16px; height: 16px; }
+.registro-identity-badge svg {
+  width: 16px;
+  height: 16px;
+}
 
 .registro-identity-title {
   font-size: 18px;
@@ -532,7 +652,9 @@ input, select { font-family: inherit; }
   line-height: 22px;
 }
 
-.registro-identity-desc strong { color: var(--registro-dark); }
+.registro-identity-desc strong {
+  color: var(--registro-dark);
+}
 
 /* Drop zone */
 .registro-dropzone {
@@ -556,8 +678,13 @@ input, select { font-family: inherit; }
   background: rgba(140, 223, 222, 0.04);
 }
 
-.registro-dropzone.has-file { border-color: var(--registro-teal); }
-.registro-dropzone.is-invalid { border-color: var(--registro-error); }
+.registro-dropzone.has-file {
+  border-color: var(--registro-teal);
+}
+
+.registro-dropzone.is-invalid {
+  border-color: var(--registro-error);
+}
 
 .registro-dropzone-icon {
   width: 48px;
@@ -569,7 +696,10 @@ input, select { font-family: inherit; }
   justify-content: center;
 }
 
-.registro-dropzone-icon svg { width: 24px; height: 24px; }
+.registro-dropzone-icon svg {
+  width: 24px;
+  height: 24px;
+}
 
 .registro-dropzone-title {
   font-size: 15px;
@@ -622,110 +752,136 @@ input, select { font-family: inherit; }
   line-height: 18px;
 }
 
-/* ── Footer ────────────────────────────────────────────────── */
-.registro-footer {
-  background: var(--registro-dark);
-  flex-shrink: 0;
+/* ==========================================================================
+   Componente: Footer Principal
+   ========================================================================== */
+
+.main-footer {
+  background-color: #262641;
+  /* El color oscuro #262641 de tu base.css */
+  color: #ffffff;
+  /* Texto blanco para contraste */
+  padding-block: 4rem;
+  /* Espaciado interno arriba y abajo (3rem) */
+  padding-inline: 2rem;
+  /* Espaciado interno a los lados (2rem) */
 }
 
-.registro-footer-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 34px 96px 80px;
+/* Contenedor que distribuye las 4 columnas */
+.footer-container {
   display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.registro-footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding-bottom: 64px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-  gap: 40px;
   flex-wrap: wrap;
+  /* Permite que baje de línea en pantallas chicas */
+  justify-content: space-between;
+  /* Separa las columnas equitativamente */
+  gap: 2rem;
+  /* Espacio mínimo de separación entre bloques */
+  max-width: 1200px;
+  /* Ancho máximo contenedor para pantallas grandes */
+  margin: 0 auto;
+  /* Centra todo el bloque en la pantalla */
 }
 
-.registro-footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 448px;
+/* Columna de la marca (ocupa un poco más de espacio) */
+.footer-brand {
+  flex: 1 1 300px;
+  /* Crece, se achica y base de 300px */
 }
 
-.registro-footer-logo {
+.footer-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.registro-footer-logo-mark { width: 46px; height: 40px; }
+.footer-logo img {
+  height: 32px;
+  /* Ajuste del tamaño del logo */
+}
 
-.registro-footer-logo span {
-  font-size: 24px;
+.logo-text {
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
-  color: var(--registro-white);
-  letter-spacing: -0.07px;
+  font-size: 1.25rem;
 }
 
-.registro-footer-desc {
-  font-size: 16px;
-  color: #d1d5db;
-  line-height: 24px;
+.logo-highlight {
+  color: #b5e7a2;
+  /* El verde claro de tu paleta */
 }
 
-.registro-footer-social {
+.footer-description {
+  color: #9797aa;
+  /* Color grisáceo para textos secundarios */
+  font-size: 0.9rem;
+  max-width: 260px;
+}
+
+/* Columnas de listas de enlaces y redes */
+.footer-links-group,
+.footer-socials {
+  flex: 1 1 160px;
+  /* Base de 160px para alineación consistente */
+}
+
+.footer-title {
+  color: #ffffff;
+  /* Forzar títulos en blanco */
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  /* Separación con la lista */
+}
+
+.footer-list {
+  list-style: none;
+  /* Quita los puntitos negros de la lista */
+}
+
+.footer-list li {
+  margin-bottom: 0.5rem;
+  /* Separación vertical entre enlaces */
+}
+
+.footer-list a {
+  color: #9797aa;
+  font-size: 0.9rem;
+}
+
+.footer-list a:hover {
+  color: #8cdfde;
+  /* Iluminación celeste al pasar el mouse */
+}
+
+/* Contenedor de iconos de redes */
+.social-icons {
   display: flex;
-  gap: 16px;
-  padding-top: 8px;
+  gap: 1rem;
 }
 
-.registro-social-btn {
-  width: 40px;
-  height: 40px;
+.social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  transition: background 0.2s;
-}
-
-.registro-social-btn:hover { background: rgba(255,255,255,0.08); }
-.registro-social-btn svg   { width: 20px; height: 20px; }
-
-.registro-footer-cols {
-  display: flex;
-  gap: 80px;
-}
-
-.registro-footer-col {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.registro-footer-col h4 {
-  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255,
+      255,
+      255,
+      0.1);
+  /* Fondo blanco sutil transparente */
+  border-radius: 50%;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--registro-white);
-  margin-bottom: 8px;
+  color: #ffffff;
 }
 
-.registro-footer-col a {
-  font-size: 16px;
-  color: #d1d5db;
-  line-height: 24px;
-  transition: color 0.2s;
+.social-icon:hover {
+  background-color: #8cdfde;
+  color: #262641;
 }
 
-.registro-footer-col a:hover { color: var(--registro-white); }
-
-.registro-footer-copy {
-  font-size: 16px;
-  color: #9ca3af;
-  text-align: center;
-}
 
 /* ── Toast ─────────────────────────────────────────────────── */
 .registro-toast {
@@ -754,7 +910,12 @@ input, select { font-family: inherit; }
   pointer-events: auto;
 }
 
-.registro-toast-icon { width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px; }
+.registro-toast-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
 
 .registro-toast-title {
   font-size: 15px;
@@ -763,7 +924,10 @@ input, select { font-family: inherit; }
   margin-bottom: 4px;
 }
 
-.registro-toast-desc { font-size: 14px; color: var(--registro-muted); }
+.registro-toast-desc {
+  font-size: 14px;
+  color: var(--registro-muted);
+}
 
 .registro-toast-close {
   margin-left: 4px;
@@ -773,31 +937,87 @@ input, select { font-family: inherit; }
   padding: 2px;
 }
 
-.registro-toast-close:hover { color: var(--registro-muted); }
-.registro-toast-close svg   { width: 16px; height: 16px; }
+.registro-toast-close:hover {
+  color: var(--registro-muted);
+}
+
+.registro-toast-close svg {
+  width: 16px;
+  height: 16px;
+}
 
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .registro-nav-inner { padding: 0 24px; }
-  .registro-footer-inner { padding: 40px 24px; }
+  .registro-nav-inner {
+    padding: 0 24px;
+  }
+
+  .registro-footer-inner {
+    padding: 40px 24px;
+  }
 
   .registro-nav-links {
     gap: 16px;
   }
 
-  .registro-nav-link { font-size: 14px; }
+  .registro-nav-link {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 700px) {
-  .registro-nav-links .registro-nav-link { display: none; }
+  .registro-nav-links .registro-nav-link {
+    display: none;
+  }
 
-  .registro-h1 { font-size: 28px; letter-spacing: -0.5px; }
+  .registro-h1 {
+    font-size: 28px;
+    letter-spacing: -0.5px;
+  }
 
-  .registro-cards { flex-direction: column; align-items: center; }
-  .registro-card  { max-width: 100%; }
+  .registro-cards {
+    flex-direction: column;
+    align-items: center;
+  }
 
-  .registro-grid-2 { grid-template-columns: 1fr; }
+  .registro-card {
+    max-width: 100%;
+  }
 
-  .registro-footer-top { flex-direction: column; }
-  .registro-footer-cols { gap: 40px; }
+  .registro-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .registro-footer-top {
+    flex-direction: column;
+  }
+
+  .registro-footer-cols {
+    gap: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .registro-logo {
+    margin-left: 165px;
+  }
+
+  .registro-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+    margin-right: 4rem;
+  }
+
+  .registro-btn-unete {
+    background: var(--registro-teal);
+    color: var(--registro-dark);
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    transition: background 0.2s;
+  }
 }
