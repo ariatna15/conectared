@@ -16,6 +16,7 @@ loginForm.addEventListener("submit", (e) => {
         (email === "admin@conectared.com" &&
         password === "123456") || validateUser(email, password)
     ) {
+
         localStorage.setItem("loggedUser", email);
 
         window.location.href =
